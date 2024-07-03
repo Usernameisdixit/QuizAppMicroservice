@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import com.csm.quizapp.Question;
 import com.csm.quizapp.QuestionWrapper;
 import com.csm.quizapp.Quiz;
+import com.csm.quizapp.Response;
 import com.csm.quizapp.dao.QuestionDao;
 import com.csm.quizapp.dao.QuizDao;
 
@@ -52,6 +53,21 @@ public class QuizService {
 		}
 		
 		return new ResponseEntity<>(questionsForUser,HttpStatus.OK);
+	}
+
+	public ResponseEntity<Integer> calculateResult(Integer id, List<Response> responses) {
+		// TODO Auto-generated method stub
+		Quiz quiz= quizDao.findById(id).get();
+		List<Question> questions=quiz.getQuestions();
+		int right=0;
+		int i=0;
+		for(Response response:responses)
+		{
+			if(response.getResponse().equals(questions.get(i).getRightAnswer()))
+				right++;
+			i++;
+		}
+		return new ResponseEntity<>(right,HttpStatus.OK);
 	}
 	
 	
