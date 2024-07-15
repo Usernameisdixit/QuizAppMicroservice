@@ -23,18 +23,43 @@ public class QuizController {
 	@Autowired
 	QuizService quizService;
 
+	
+	//http://localhost:8080/quiz/create?category=php&numQ=2&title=PhpQuiz
+	
+//	{
+//	    "category": "C",
+//	    "questionTitle": "#include<stdio.h>\n int main()\n {\n int n;\n for(n = 7; n!=0; n--)\n printf(\"n = %d\", n--);\n getchar();\n return 0;\n }\n",
+//	    "option1": "0",
+//	    "option2": "1",
+//	    "option3": "2",
+//	    "option4": "infinite",
+//	    "rightAnswer": "infinite",
+//	    "difficultylevel": "high"
+//	}
+	
 	@PostMapping("create")
 	public ResponseEntity<String> createQuiz(@RequestParam String category,@RequestParam int numQ,@RequestParam String title)
 	{
 		return quizService.createQuiz(category,numQ,title);
 	}
 	
+	//http://localhost:8080/quiz/get/5
 	@GetMapping("get/{id}")
 	public ResponseEntity<List<QuestionWrapper>> getQuizQuestions(@PathVariable Integer id)
 	{
 		return quizService.getQuizQuestions(id);
 	}
 	
+	//http://localhost:8080/quiz/submit/1
+//	[{
+//	    "id": 18,
+//	    "response":"both option1 and option2"
+//
+//	},{
+//	     "id": 3,
+//	    "response":"s"
+//
+//	}]
 	
 	@PostMapping("submit/{id}")
 	public ResponseEntity<Integer> submitQuiz(@PathVariable Integer id,@RequestBody List<Response> responses )

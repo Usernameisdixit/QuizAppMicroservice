@@ -23,6 +23,7 @@ public class QuestionController {
 	@Autowired
 	QuestionService questionService;
 	
+	//http://localhost:8080/question/allQuestions
 	@GetMapping("allQuestions")
 	public ResponseEntity<List<Question>> getAllQuestions()
 	{
@@ -34,6 +35,19 @@ public class QuestionController {
 	{
 		return questionService.getQuestionsByCategory(category);
 	}
+	
+	//http://localhost:8080/question/add
+	
+//	{
+//	    "category": "sql",
+//	    "questionTitle": "Which of the following are types of Unicode character string types in SQL?",
+//	    "option1": "nchar",
+//	    "option2": "ntext",
+//	    "option3": "both option1 and option2",
+//	    "option4": "none",
+//	    "rightAnswer": "both option1 and option2",
+//	    "difficultylevel": "medium"
+//	}
 	
 	@PostMapping("add")
 	public ResponseEntity<String> addQuestion(@RequestBody Question question)
