@@ -9,12 +9,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.csm.quizapp.Question;
-import com.csm.quizapp.QuestionWrapper;
-import com.csm.quizapp.Quiz;
-import com.csm.quizapp.Response;
 import com.csm.quizapp.dao.QuestionDao;
 import com.csm.quizapp.dao.QuizDao;
+import com.csm.quizapp.model.Question;
+import com.csm.quizapp.model.QuestionWrapper;
+import com.csm.quizapp.model.Quiz;
+import com.csm.quizapp.model.Response;
 
 @Service
 public class QuizService {

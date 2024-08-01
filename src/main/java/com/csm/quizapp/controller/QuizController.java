@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.csm.quizapp.QuestionWrapper;
-import com.csm.quizapp.Response;
+import com.csm.quizapp.model.QuestionWrapper;
+import com.csm.quizapp.model.Response;
 import com.csm.quizapp.service.QuizService;
 
 @RestController

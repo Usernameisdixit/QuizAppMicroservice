@@ -1,6 +1,7 @@
 package com.csm.quizapp.service;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.csm.quizapp.Question;
 import com.csm.quizapp.dao.QuestionDao;
+import com.csm.quizapp.model.Question;
 
 @Service
 public class QuestionService {

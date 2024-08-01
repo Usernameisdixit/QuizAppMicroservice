@@ -1,4 +1,4 @@
-package com.csm.quizapp;
+package com.csm.quizapp.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
