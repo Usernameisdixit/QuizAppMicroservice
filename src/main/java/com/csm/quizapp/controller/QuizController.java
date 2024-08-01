@@ -23,7 +23,8 @@ public class QuizController {
 	@Autowired
 	QuizService quizService;
 
-	
+	//The ? in the URL is used to start the query string, 
+	//which includes key-value pairs representing parameters passed to the server
 	//http://localhost:8080/quiz/create?category=php&numQ=2&title=PhpQuiz
 	
 //	{
@@ -38,6 +39,7 @@ public class QuizController {
 //	}
 	
 	@PostMapping("create")
+	//@RequestParam is used to bind the query parameters to the method parameters.
 	public ResponseEntity<String> createQuiz(@RequestParam String category,@RequestParam int numQ,@RequestParam String title)
 	{
 		return quizService.createQuiz(category,numQ,title);

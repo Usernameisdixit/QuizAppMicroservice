@@ -17,7 +17,11 @@ public interface QuestionDao extends JpaRepository< Question, Integer> {
 
 	List<Question> findByCategory(String category);
 
-	@Query(value="select * from question q where q.category=:category ORDER BY RANDOM() LIMIT :numQ",nativeQuery=true)
+	// below query is valid if we are using postgre sql as it supports RANDOM()
+	//SELECT * FROM question q WHERE q.category=? ORDER BY RANDOM() LIMIT ?;
+
+	// my sql supports RAND() function
+	@Query(value="select * from question q where q.category=:category ORDER BY RAND() LIMIT :numQ",nativeQuery=true)
 	List<Question> findRandomQuestionsByCategory(String category, int numQ);
 	
 

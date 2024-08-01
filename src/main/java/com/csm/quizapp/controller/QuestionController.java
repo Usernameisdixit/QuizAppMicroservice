@@ -30,6 +30,7 @@ public class QuestionController {
 		return questionService.getAllQuestions();
 	}
 	
+	//http://localhost:8585/question/category/java
 	@GetMapping("category/{category}")
 	public ResponseEntity<List<Question>> getQuestionsByCategory(@PathVariable String category)
 	{

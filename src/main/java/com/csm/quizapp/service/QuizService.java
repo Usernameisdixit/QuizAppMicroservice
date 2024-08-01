@@ -42,7 +42,8 @@ public class QuizService {
 	public ResponseEntity<List<QuestionWrapper>> getQuizQuestions(Integer id) {
 		// TODO Auto-generated method stub
 		Optional<Quiz> quiz=quizDao.findById(id);
-		
+		// use of get here is If a value is present, returns the value, 
+		//otherwise throws NoSuchElementException.
 		List<Question> questionsFromDB=quiz.get().getQuestions();
 		List<QuestionWrapper> questionsForUser=new ArrayList<>();
 		
@@ -57,13 +58,15 @@ public class QuizService {
 
 	public ResponseEntity<Integer> calculateResult(Integer id, List<Response> responses) {
 		// TODO Auto-generated method stub
-		Quiz quiz= quizDao.findById(id).get();
+		Quiz quiz= quizDao.findById(id).get();// get is optional here
+		
+
 		List<Question> questions=quiz.getQuestions();
 		int right=0;
 		int i=0;
 		for(Response response:responses)
 		{
-			if(response.getResponse().equals(questions.get(i).getRightAnswer()))
+			if(response.getResponse().trim().equals(questions.get(i).getRightAnswer().trim()))
 				right++;
 			i++;
 		}
